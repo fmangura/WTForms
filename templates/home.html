@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row row-cols-3 available">
+            {% for pet in pets %}
+            {% if pet.available %}
+            <div class="col col-sm-3 imgContainer">
+                <img src="{{pet.photo_url}}" class="img-thumbnail" alt="No Img Found" onerror="this.src='https://prd-use1-shelter-app.s3.amazonaws.com/kkymjohgwv.png'">
+                <p> <a href="/{{pet.id}}"><strong>{{pet.name}}</strong></a> is <strong class="text-muted">Available</strong></p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <hr>
+        {% for pet in pets %}
+        {% if pet.available != True %}
+        <div class="row row-cols-3 unavailable">
+            <div class="col col-sm-3 imgContainer">
+                <img src="{{pet.photo_url}}" class="img-thumbnail" alt="No Img Found" onerror="this.src='https://prd-use1-shelter-app.s3.amazonaws.com/kkymjohgwv.png'">
+                <p> <a href="/{{pet.id}}"><strong>{{pet.name}}</strong></a> was <strong class="text-muted">Adopted!</strong></p>
+            </div>
+            
+        </div>
+        {% endif %}
+        {% endfor %}
+        <a href="/add" class="btn btn-primary">Add Pet</a>
+    </div>
+
+{% endblock %}

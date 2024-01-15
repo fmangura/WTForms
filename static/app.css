@@ -1,0 +1,28 @@
+
+
+.img-thumbnail {
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgContainer {
+    width: 220px;
+    height: 260px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.container {
+    padding: 40px;
+    margin-left: 20px;
+    width: auto;
+    height: auto;
+}
+
+.nav {
+    padding: 20px;
+    margin: 10px;
+}

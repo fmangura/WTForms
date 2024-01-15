@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Pet information {% endblock %}
+
+{% block content %}
+
+<h2>{{pet.name}}</h2>
+<p> {{pet.species}} 
+</p>
+<img src="{{pet.photo_url}}" class="img-thumbnail" alt="No Img Found" onerror="this.src='https://prd-use1-shelter-app.s3.amazonaws.com/kkymjohgwv.png'">
+<p>Age: 
+    {% if pet.age %}
+    {{pet.age}}
+    {% endif %}
+    {% if pet.notes %}
+<br>
+    Notes: {{pet.notes}}
+    {% endif %}
+</p>
+<a href="/{{pet.id}}/edit"><small>edit</small></a>
+{% endblock %}
